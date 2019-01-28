@@ -5,8 +5,9 @@ const logger = createLogger({
 	format: format.combine(
 		format.timestamp({ format: 'YYYY/MM/DD HH:mm:ss' }),
 		format.printf((info: any) => {
-			const { timestamp, message, level } = info;
-			return `[${timestamp} - ${level}] ${message}`;
+			const { timestamp, message, level, ...meta } = info;
+			return `[${timestamp} - ${level}] ${message} ${Object.keys(meta).length ?
+				`\n${JSON.stringify(meta, null, 2)}` : ''}`;
 		}),
 	),
 	transports: [
