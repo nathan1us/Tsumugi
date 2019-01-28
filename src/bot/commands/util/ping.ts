@@ -16,6 +16,7 @@ export default class PingCommand extends Command {
 			group: 'util',
 			memberName: 'ping',
 			name: 'ping',
+			aliases: ['ms'],
 			description: 'Check the bot\'s ping to your Discord server.',
 			guarded: true,
 		});
