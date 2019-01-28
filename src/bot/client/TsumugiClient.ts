@@ -1,4 +1,5 @@
 import { CommandoClient } from 'discord.js-commando';
+import logger from '../../util/logger';
 
 import * as path from 'path';
 
@@ -27,7 +28,7 @@ export class TsumugiClient {
 			.registerCommandsIn(path.join(__dirname, '..', 'commands'));
 
 		this.client.on('ready', () => {
-			console.log('Tsumugi is ready! 🎉');
+			logger.log('debug', 'Tsumugi is ready! 🎉');
 		});
 
 		this.client.login(token);

@@ -1,5 +1,19 @@
-import * as dotenv from 'dotenv';
+import logger from './logger';
+import dotenv from 'dotenv';
+import fs from 'fs';
 
-dotenv.config();
+if (fs.existsSync('.env')) {
+		logger.log('debug', 'Using .env to supply environment variables');
+		dotenv.config({path: '.env'});
+} else {
+		logger.log('error', 'Your .env file is missing.');
+
+		process.exit(1);
+}
 
 export const BOT_TOKEN = process.env.BOT_TOKEN;
+
+if (!BOT_TOKEN) {
+		logger.log('error', 'Bot token is missing.');
+		process.exit(1);
+}
