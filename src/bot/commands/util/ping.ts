@@ -30,7 +30,7 @@ export default class PingCommand extends Command {
 				.setColor(0xf2a15a)
 				.setDescription(`🏓 Poong!\n
 				⏱️ **RTT**: ${Math.round(secondMessage.createdTimestamp - msg.createdTimestamp)} ms\n
-				💓 **Heartbeat**: ${msg.client.ping} ms!`)
+				💓 **Heartbeat**: ${Math.round(msg.client.ping)} ms`)
 				.setTimestamp();
 
 			return secondMessage.edit(pingEmbed);

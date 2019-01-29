@@ -1,5 +1,5 @@
 import { TsumugiClient } from './bot/client/TsumugiClient';
-import { BOT_TOKEN } from './util/config';
+import { BOT_TOKEN } from './bot/util/config';
 
 const client = new TsumugiClient();
 

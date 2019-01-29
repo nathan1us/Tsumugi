@@ -1,5 +1,5 @@
 import { CommandoClient } from 'discord.js-commando';
-import logger from '../../util/logger';
+import logger from '../util/logger';
 
 import * as path from 'path';
 
