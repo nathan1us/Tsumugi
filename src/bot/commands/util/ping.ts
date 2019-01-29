@@ -8,7 +8,8 @@
  */
 
 import { Command, CommandoClient, CommandMessage } from 'discord.js-commando';
-import { Message, RichEmbed } from 'discord.js';
+import { Message } from 'discord.js';
+import { sendEmbed } from '../../../misc/embeds';
 
 export default class PingCommand extends Command {
 
@@ -26,15 +27,13 @@ export default class PingCommand extends Command {
 	public async run(msg: CommandMessage) {
 		if (!msg.editable) {
 			const secondMessage = await msg.channel.send('Pinging...') as Message;
-			const pingEmbed = new RichEmbed()
-				.setAuthor('Ping command')
-				.setColor(0xf2a15a)
-				.setDescription(`🏓 Poong!\n
-				⏱️ **RTT**: ${Math.round(secondMessage.createdTimestamp - msg.createdTimestamp)} ms\n
-				💓 **Heartbeat**: ${Math.round(msg.client.ping)} ms`)
-				.setTimestamp();
+			const description: string = `🏓 Poong!\n
+			⏱️ **RTT**: ${Math.round(secondMessage.createdTimestamp - msg.createdTimestamp)} ms
+			💓 **Heartbeat**: ${Math.round(msg.client.ping)} ms`;
 
-			return secondMessage.edit(pingEmbed);
+			await secondMessage.delete(1000);
+
+			return sendEmbed(msg, `${this.group.name}: ${this.memberName}`, description, 0xf2a15a);
 		}
 	}
 }

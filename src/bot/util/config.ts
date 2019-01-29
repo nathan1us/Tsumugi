@@ -18,6 +18,7 @@ if (fs.existsSync('.env')) {
 }
 
 export const BOT_TOKEN = process.env.BOT_TOKEN;
+export const BOT_AVATAR = process.env.BOT_AVATAR;
 
 if (!BOT_TOKEN) {
 		logger.log('error', 'Bot token is missing.');
