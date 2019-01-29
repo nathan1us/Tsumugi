@@ -35,7 +35,7 @@ gulp.task('build', gulp.series(['lint'], () => {
 }));
 
 gulp.task('watch', gulp.series(['build'], () => {
-    gulp.watch('./src/**/*.ts', ['build']);
+    gulp.watch('./src/**/*.ts', gulp.series(['build']));
 }));
 
 gulp.task('start',gulp.series(['build'], () => {
@@ -45,7 +45,9 @@ gulp.task('start',gulp.series(['build'], () => {
     });
 }));
 
-
+/**
+ * @todo Fix the issue with nodemon not starting
+ */
 gulp.task('serve', gulp.series(['watch'], () => {
     return gulpNodemon({
         script: './build/tsumugi.js',
