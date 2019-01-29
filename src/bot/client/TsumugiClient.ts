@@ -1,7 +1,14 @@
+/**
+ * @fileoverview The entry point of Tsumugi
+ * @author Georgi Slaveykov
+ * @module TsumugiClient
+ * @license GPL-3.0
+ */
+
 import { CommandoClient } from 'discord.js-commando';
 import logger from '../util/logger';
 
-import * as path from 'path';
+import path from 'path';
 
 export class TsumugiClient {
 

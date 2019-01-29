@@ -1,3 +1,10 @@
+/**
+ * @fileoverview Console and file logging system
+ * @module util/logger
+ * @author Georgi Slaveykov
+ * @license GPL-3.0
+ */
+
 import { createLogger, transports, format } from 'winston';
 import DailyRotateFile from 'winston-daily-rotate-file';
 

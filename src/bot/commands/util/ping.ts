@@ -1,9 +1,10 @@
 /**
- * @file PingCommand - Check the bot's ping to your Discord server.
- * **Aliases**: 'ms'
- * @category util
  * @name Ping
+ * @category util
+ * **Aliases**: 'ms'
  * @example ping
+ * @description Check the bot's ping to your Discord server.
+ * @license GPL-3.0
  */
 
 import { Command, CommandoClient, CommandMessage } from 'discord.js-commando';

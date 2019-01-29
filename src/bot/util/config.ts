@@ -1,3 +1,9 @@
+/**
+ * @fileoverview Bot configuration ( Environment variables, etc. )
+ * @author Georgi Slaveykov
+ * @license GPL-3.0
+ */
+
 import logger from './logger';
 import dotenv from 'dotenv';
 import fs from 'fs';
