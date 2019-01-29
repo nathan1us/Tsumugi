@@ -7,7 +7,7 @@
  */
 
 import { Command, CommandoClient, CommandMessage } from 'discord.js-commando';
-import { Message } from 'discord.js';
+import { Message, RichEmbed } from 'discord.js';
 
 export default class PingCommand extends Command {
 
@@ -23,13 +23,17 @@ export default class PingCommand extends Command {
 	}
 
 	public async run(msg: CommandMessage) {
-		if (msg.editedTimestamp == null) {
-			return msg.channel.send('Pinging...')
-				.then((sent: Message) => {
-					const rtt = Math.round(sent.createdTimestamp - msg.createdTimestamp);
-					const heartbeat = msg.client.ping;
-					return sent.edit(`RTT: ${rtt} ms\nPing: ${heartbeat} ms`);
-				});
+		if (!msg.editable) {
+			const secondMessage = await msg.channel.send('Pinging...') as Message;
+			const pingEmbed = new RichEmbed()
+				.setAuthor('Ping command')
+				.setColor(0xf2a15a)
+				.setDescription(`🏓 Poong!\n
+				⏱️ **RTT**: ${Math.round(secondMessage.createdTimestamp - msg.createdTimestamp)} ms\n
+				💓 **Heartbeat**: ${msg.client.ping} ms!`)
+				.setTimestamp();
+
+			return secondMessage.edit(pingEmbed);
 		}
 	}
 }
