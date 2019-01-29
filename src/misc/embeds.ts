@@ -40,5 +40,5 @@ export function sendEmbed(message: CommandMessage, title: string, content: strin
  * @example sendErrorEmbed(msg, 'Error message', 0xFF0000);
  */
 export function sendErrorEmbed(message: CommandMessage, error: string, color: number) {
-	return sendEmbed(message, 'An error has occured!', `❌ **Error:**  ${error} `, color);
+	return sendEmbed(message, 'An error has occurred!', `❌ **Error:**  ${error} `, color);
 }
