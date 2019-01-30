@@ -5,8 +5,9 @@
  */
 
 import { CommandMessage } from 'discord.js-commando';
-import { BOT_AVATAR } from '../bot/util/config';
+import { BOT_AVATAR } from './config';
 import { Message } from 'discord.js';
+import { capitalize } from '../../utils/';
 
 /**
  * Send an embed based on different arguments
@@ -18,17 +19,17 @@ import { Message } from 'discord.js';
  * @example sendEmbed(msg, `This is a title`, 'This is the embed's content', 0xf2a15a);
  */
 export function sendEmbed(message: CommandMessage, title: string, content: string, color: number) {
-		const promise: Promise<Message | Message[]> = message.embed({
-			author: {
-				name: title,
-				icon_url: BOT_AVATAR
-			},
-			description: content,
-			color,
-			timestamp: new Date()
-		});
+	const promise: Promise<Message | Message[]> = message.embed({
+		author: {
+			name: title,
+			icon_url: BOT_AVATAR
+		},
+		description: content,
+		color,
+		timestamp: new Date()
+	});
 
-		return promise;
+	return promise;
 }
 
 /**

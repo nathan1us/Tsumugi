@@ -9,8 +9,8 @@
 
 import { Command, CommandoClient, CommandMessage } from 'discord.js-commando';
 import { Message } from 'discord.js';
-import { sendEmbed } from '../../../misc/embeds';
-
+import { sendEmbed } from '../../util/embeds';
+import { capitalize } from '../../../utils/';
 export default class PingCommand extends Command {
 
 	constructor(client: CommandoClient) {
@@ -33,7 +33,7 @@ export default class PingCommand extends Command {
 
 			await secondMessage.delete(1000);
 
-			return sendEmbed(msg, `${this.group.name}: ${this.memberName}`, description, 0xf2a15a);
+			return sendEmbed(msg, `${this.group.name}: ${capitalize(this.memberName)}`, description, 0xf2a15a);
 		}
 	}
 }
