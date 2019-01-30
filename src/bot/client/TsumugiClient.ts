@@ -25,7 +25,9 @@ export class TsumugiClient {
 
 		this.client.registry
 			.registerDefaultTypes()
-			.registerGroups([['util', 'Utility commands']])
+			.registerGroups([
+				['games', 'Mini-games'],
+				['util', 'Utility commands']])
 			.registerDefaultCommands({
 				commandState: false,
 				help: false,
