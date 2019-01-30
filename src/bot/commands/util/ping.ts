@@ -27,9 +27,8 @@ export default class PingCommand extends Command {
 	public async run(msg: CommandMessage) {
 		if (!msg.editable) {
 			const secondMessage = await msg.channel.send('Pinging...') as Message;
-			const description: string = `🏓 Poong!\n
-			⏱️ **RTT**: ${Math.round(secondMessage.createdTimestamp - msg.createdTimestamp)} ms
-			💓 **Heartbeat**: ${Math.round(msg.client.ping)} ms`;
+			const description: string = `🏓 Poong!\n\n⌛ **RTT**: ${Math.round(secondMessage.createdTimestamp -
+				msg.createdTimestamp)} ms\n💓 **Heartbeat**: ${Math.round(msg.client.ping)} ms`;
 
 			await secondMessage.delete(1000);
 
