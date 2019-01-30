@@ -8,7 +8,7 @@
   */
 export default function getNumInRange(start: number, end: number): number {
 	start = Math.ceil(start);
-	end = Math.floor(end);
+	end = Math.floor(end + 1);
 
-	return Math.floor(Math.random() * (start - end + 1)) + end;
+	return Math.floor(Math.random() * (start - end)) + end;
 }
