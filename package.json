@@ -46,7 +46,7 @@
     "winston-daily-rotate-file": "^3.6.0"
   },
   "devDependencies": {
-    "@types/node": "^11.9.0",
+    "@types/node": "^12.7.12",
     "gulp": "^4.0.0",
     "gulp-typescript": "^5.0.0",
     "typescript": "^3.2.4"
